@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         var features    = grunt.config("cucumberjs.features") || 'features';
         var steps       = grunt.config("cucumberjs.steps") || 'features/step_definitions';
         var tags        = grunt.config("cucumberjs.tags") || '~@Pending';
+        var format      = grunt.config("cucumberjs.format") || 'summary';
 
         var options = [ 'node',
             'cucumber-js-task.js',
@@ -15,7 +16,9 @@ module.exports = function (grunt) {
             '-r',
             steps,
             '-t',
-            tags ];
+            tags,
+            '-f',
+            format ];
 
         var cli = Cucumber.Cli(options);
 
